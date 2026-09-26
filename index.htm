@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kids&You Store</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 20px; background-color: #ffffff; }
+    h1 { color: #2481cc; }
+    .card { border: 1px solid #ddd; border-radius: 10px; padding: 15px; margin: 15px 0; }
+  </style>
+</head>
+<body>
+  <h1>Kids&You Store</h1>
+  <p id="user">Loading user profile...</p>
+  
+  <div class="card">
+    <h3>Welcome to our shop!</h3>
+    <p>Browse our collection directly inside Telegram.</p>
+  </div>
+
+  <script>
+    const tg = window.Telegram.WebApp;
+    tg.ready();
+    tg.expand();
+    if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
+      document.getElementById('user').innerText = 'Hello, ' + tg.initDataUnsafe.user.first_name + '!';
+    }
+  </script>
+</body>
+</html>
